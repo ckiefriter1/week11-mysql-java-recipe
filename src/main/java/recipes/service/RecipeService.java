@@ -205,11 +205,19 @@ public class RecipeService {
    */
   public List<Recipe> fetchRecipes() {
     // @formatter:off
-    return recipeDao.fetchAllRecipes()
+	  /*    
+	   * Using Streams to sort List by recipe_id
+	   * 
+	   return recipeDao.fetchAllRecipes()
         .stream()
         .sorted((r1, r2) -> r1.getRecipeId() - r2.getRecipeId())
         .collect(Collectors.toList());
     // @formatter:on
+     * 
+     */
+    List<Recipe> recipeList = recipeDao.fetchAllRecipes();
+    recipeList.sort((r1, r2) -> r1.getRecipeId() - r2.getRecipeId());
+    return recipeList;
   }
 
   /**
