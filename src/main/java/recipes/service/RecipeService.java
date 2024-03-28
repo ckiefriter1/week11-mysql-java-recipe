@@ -207,13 +207,13 @@ public class RecipeService {
     // @formatter:off
 	  /*    
 	   * Using Streams to sort List by recipe_id
-	   * 
+	   *
 	   return recipeDao.fetchAllRecipes()
         .stream()
         .sorted((r1, r2) -> r1.getRecipeId() - r2.getRecipeId())
         .collect(Collectors.toList());
     // @formatter:on
-     * 
+     / 
      */
     List<Recipe> recipeList = recipeDao.fetchAllRecipes();
     recipeList.sort((r1, r2) -> r1.getRecipeId() - r2.getRecipeId());
